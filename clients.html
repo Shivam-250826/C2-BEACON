@@ -1,0 +1,6 @@
+{% extends "base.html" %}{% set title="Clients" %}{% block content %}
+<div class="page-heading"><div><div class="eyebrow">INVENTORY / ENDPOINT OVERVIEW</div><h1>Client Management</h1><p class="subheading">Review fictional endpoints in your simulated lab.</p></div><button class="btn btn-primary" id="addClientBtn">＋ Add demo client</button></div>
+<div class="notice"><span class="notice-icon">ⓘ</span><div><b>Fictional endpoint records</b><span>All names and documentation IP addresses below are sample data.</span></div><span class="notice-label">DEMO ONLY</span></div>
+<div class="toolbar"><div class="search-box">⌕ <input id="clientSearch" placeholder="Search client ID or name..."></div><select class="select-control" id="statusFilter"><option value="all">All statuses</option><option value="Online">Online</option><option value="Offline">Offline</option></select><span class="results-count" id="clientCount"></span></div>
+<section class="panel"><div class="table-wrap"><table><thead><tr><th>CLIENT</th><th>IP ADDRESS</th><th>OPERATING SYSTEM</th><th>LAST SEEN</th><th>STATUS</th><th>ACTION</th></tr></thead><tbody id="clientsTable"></tbody></table></div></section>
+{% endblock %}{% block scripts %}<script src="{{ url_for('static', filename='js/clients.js') }}"></script>{% endblock %}

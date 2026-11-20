@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ title or "C2 Beacon" }} | Security Console</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% block head %}{% endblock %}
+</head><body data-page="{{ page }}">
+<div class="app-shell">
+<aside class="sidebar">
+<a class="brand" href="{{ url_for('dashboard') }}"><span class="brand-mark">C<span>2</span></span><span><b>BEACON</b><small>SECURITY CONSOLE</small></span></a>
+<div class="side-label">WORKSPACE</div>
+<nav class="nav-list">
+<a class="nav-link {{ 'active' if page=='dashboard' else '' }}" href="{{ url_for('dashboard') }}"><span class="nav-icon">▦</span> Dashboard</a>
+<a class="nav-link {{ 'active' if page=='clients' else '' }}" href="{{ url_for('clients_page') }}"><span class="nav-icon">◉</span> Clients <i class="nav-count">12</i></a>
+<a class="nav-link {{ 'active' if page=='monitoring' else '' }}" href="{{ url_for('monitoring_page') }}"><span class="nav-icon">⌁</span> Beacon Monitoring</a>
+<a class="nav-link {{ 'active' if page=='alerts' else '' }}" href="{{ url_for('alerts_page') }}"><span class="nav-icon">⚑</span> Security Alerts <i class="nav-count">05</i></a>
+<a class="nav-link {{ 'active' if page=='analytics' else '' }}" href="{{ url_for('analytics_page') }}"><span class="nav-icon">▥</span> Analytics</a>
+</nav>
+<div class="side-label side-label-bottom">PREFERENCES</div>
+<nav class="nav-list"><a class="nav-link {{ 'active' if page=='settings' else '' }}" href="{{ url_for('settings_page') }}"><span class="nav-icon">⚙</span> Settings</a></nav>
+<div class="sidebar-bottom"><div class="system-card"><span class="pulse-dot"></span><div><b>Simulation mode</b><small>Local demo environment</small></div><span class="tiny-tag">ON</span></div><div class="profile"><div class="avatar">AD</div><div><b>Admin User</b><small>Security Analyst</small></div><span class="more">•••</span></div></div>
+</aside>
+<main class="main-content">
+<header class="topbar"><div class="crumb">Workspace <span>/</span> <b>{{ title or "Dashboard" }}</b></div><div class="top-actions"><span class="demo-badge"><i></i> DEMO DATA</span><button class="icon-btn" title="Notifications" data-toast="You are all caught up.">♧<em></em></button><div class="top-date" id="topClock">--:--:--</div></div></header>
+<section class="page-wrap">{% block content %}{% endblock %}<footer class="footer"><span>© 2026 C2 Beacon Simulation Console</span><span>PYTHON + FLASK <b>v1.0.0</b></span></footer></section>
+</main></div><div class="toast-container" id="toastContainer"></div>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+{% block scripts %}{% endblock %}
+</body></html>

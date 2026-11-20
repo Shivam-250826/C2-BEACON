@@ -1,0 +1,6 @@
+{% extends "base.html" %}{% set title="Security Alerts" %}{% block content %}
+<div class="page-heading"><div><div class="eyebrow">THREAT REVIEW / NOTIFICATIONS</div><h1>Security Alerts</h1><p class="subheading">Review illustrative anomalies in the sample environment.</p></div><button class="btn btn-ghost" id="resolveAll">✓ Resolve all</button></div>
+<div class="notice"><span class="notice-icon">ⓘ</span><div><b>Illustrative detections</b><span>These sample alerts are preloaded demonstration data, not real threat findings.</span></div><span class="notice-label">SAMPLE DATA</span></div>
+<div class="toolbar"><div class="search-box">⌕ <input id="alertSearch" placeholder="Search alert type or client..."></div><select class="select-control" id="severityFilter"><option value="all">All severity</option><option value="High">High</option><option value="Medium">Medium</option><option value="Low">Low</option></select><span class="results-count" id="alertCount"></span></div>
+<div class="alert-list" id="alertsList"></div>
+{% endblock %}{% block scripts %}<script src="{{ url_for('static', filename='js/alerts.js') }}"></script>{% endblock %}
